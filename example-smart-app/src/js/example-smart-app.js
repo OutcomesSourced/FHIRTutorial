@@ -36,7 +36,7 @@
       var cell1 = row.insertCell(0);
       var cell2 = row.insertCell(1);
       cell1.innerHTML = '1';
-      //cell2.innerHTML = '2';
+      cell2.innerHTML = conditona.code.coding[0].code; //'2';
       
       /*if (typeof conditona.code != 'undefined' &&
           typeof conditona.code.coding != 'undefined' &&
@@ -51,7 +51,6 @@
         } else {
           cell2.innerHTML = 'Missing Value';
       }*/ 
-      cell2.innerHTML = conditona.code.coding[0].code;
     }
     
     
@@ -92,8 +91,8 @@
         
         smart.patient.api.fetchAll({type: 'Observation'})
         .then(function(results, refs) {
-          results.forEach(function(observationa){
-            displayObservation(observationa);
+          results.forEach(function(observation){
+            displayObservation(observation);
           });
         });
         
@@ -124,7 +123,7 @@
             lname = patient.name[0].family.join(' ');
           }
 
-          fname = "Test37";
+          fname = "Test38";
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
           var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
