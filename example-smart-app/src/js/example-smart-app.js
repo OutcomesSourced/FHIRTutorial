@@ -31,7 +31,7 @@
           var fname = '';
           var lname = '';
 
-          var ptwid = patient.identifier;
+          var ptwid = patient.id;
 
           
           if (typeof patient.name[0] !== 'undefined') {
