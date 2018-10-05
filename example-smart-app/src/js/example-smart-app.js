@@ -51,7 +51,7 @@
         } else {
           cell2.innerHTML = 'Missing Value';
       }*/ 
-      cell2.innerHTML = typeof conditona.code;
+      cell2.innerHTML = conditona.code.coding[0].code;
     }
     
     
@@ -124,7 +124,7 @@
             lname = patient.name[0].family.join(' ');
           }
 
-          fname = "Test35";
+          fname = "Test36";
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
           var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
