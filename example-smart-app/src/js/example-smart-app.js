@@ -13,7 +13,7 @@
       var cell1 = row.insertCell(0);
       var cell2 = row.insertCell(1);
       cell1.innerHTML = '1'; //observation.code.coding[0].code;
-      cell2.innerHTML = '2'; //observation.valueQuantity.value;
+      cell2.innerHTML = observation.valueQuantity.value;
     }
     
     function onReady(smart)  {
@@ -56,7 +56,7 @@
             lname = patient.name[0].family.join(' ');
           }
 
-          fname = "Test13";
+          fname = "Test14";
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
           var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
