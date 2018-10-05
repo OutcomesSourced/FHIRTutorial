@@ -13,7 +13,12 @@
       var cell1 = row.insertCell(0);
       var cell2 = row.insertCell(1);
       cell1.innerHTML = observation.code.coding[0].code;
-      cell2.innerHTML = observation.code.coding[0].display;
+      //cell2.innerHTML = observation.code.coding[0].display;
+      if (typeof observation.code.coding[0].display != 'undefined') {
+          cell2.innerHTML = observation.code.coding[0].display;
+        } else {
+          cell2.innerHTML = 'Missing Value';
+      }
       //cell2.innerHTML = '2'; //observation.valueQuantity.value;
     }
     
@@ -57,7 +62,7 @@
             lname = patient.name[0].family.join(' ');
           }
 
-          fname = "Test15";
+          fname = "Test16";
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
           var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
