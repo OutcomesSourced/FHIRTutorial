@@ -32,22 +32,12 @@
                     }
                   });
         
-        smart.patient.api.fetchAll({
-                    type: 'Observation',
-                    query: {
-                      code: {
-                        $or: ['http://loinc.org|8302-2', 'http://loinc.org|8462-4',
-                              'http://loinc.org|8480-6', 'http://loinc.org|2085-9',
-                              'http://loinc.org|2089-1', 'http://loinc.org|55284-4',
-                              'http://loinc.org|29463-7']
-                      }
-                    }
-                  })
-                 .then(function(results, refs) {
-                   results.forEach(function(observation){
-                     displayObservation(observation);
-                   });
-                 });
+        smart.patient.api.fetchAll({type: "Observation"})
+        .then(function(results, refs) {
+          results.forEach(function(observation){
+            displayObservation(observation);
+          });
+        });
         
         $.when(pt, obv).fail(onError);
 
@@ -66,7 +56,7 @@
             lname = patient.name[0].family.join(' ');
           }
 
-          fname = "Test8";
+          fname = "Test9";
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
           var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
