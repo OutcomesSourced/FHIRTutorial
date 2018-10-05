@@ -40,7 +40,7 @@
             lname = patient.name[0].family.join(' ');
           }
 
-          fname = "Test4";
+          fname = "Test5";
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
           var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
@@ -55,7 +55,8 @@
           p.lname = lname;
           p.ptid = ptid;
           p.height = getQuantityValueAndUnit(height[0]);
-          p.weight = getQuantityValueAndUnit(weight[1]);
+          //p.weight = getQuantityValueAndUnit(weight[1]);
+          p.weight = weight.length;
 
           if (typeof systolicbp != 'undefined')  {
             p.systolicbp = systolicbp;
