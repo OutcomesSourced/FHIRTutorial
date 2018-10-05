@@ -119,7 +119,7 @@
             lname = patient.name[0].family.join(' ');
           }
 
-          fname = "Test26";
+          fname = "Test27";
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
           var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
@@ -129,8 +129,8 @@
 
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
-          //p.gender = gender;
-          p.gender = xml_to_string(smart.patient.api.fetchAll({type: 'Observation'}));
+          p.gender = gender;
+          //p.gender = xml_to_string(smart.patient.api.fetchAll({type: 'Observation'}));
           p.fname = fname;
           p.lname = lname;
           p.ptid = ptid;
