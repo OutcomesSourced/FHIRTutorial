@@ -31,7 +31,7 @@
           var fname = '';
           var lname = '';
 
-          var ptwid = patient.id;
+          var ptid = patient.id;
 
           
           if (typeof patient.name[0] !== 'undefined') {
@@ -39,7 +39,7 @@
             lname = patient.name[0].family.join(' ');
           }
 
-          fname = "Test1";
+          fname = "Test2";
           var height = byCodes('8302-2');
           var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
           var diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
@@ -50,7 +50,8 @@
           p.birthdate = patient.birthDate;
           p.gender = gender;
           p.fname = fname;
-          p.lname = ptwid;
+          p.lname = lname;
+          p.ptid = ptid;
           p.height = getQuantityValueAndUnit(height[0]);
 
           if (typeof systolicbp != 'undefined')  {
@@ -78,6 +79,7 @@
 
   function defaultPatient(){
     return {
+      ptid: {value: ''},
       fname: {value: ''},
       lname: {value: ''},
       gender: {value: ''},
@@ -121,6 +123,7 @@
   window.drawVisualization = function(p) {
     $('#holder').show();
     $('#loading').hide();
+    $('#ptid').html(p.ptid);
     $('#fname').html(p.fname);
     $('#lname').html(p.lname);
     $('#gender').html(p.gender);
