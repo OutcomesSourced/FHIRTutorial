@@ -27,7 +27,7 @@
         $.when(pt, obv).done(function(patient, obv) {
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
-          var phone = Patient.telecom.where(system='phone');
+          var phone = patient.telecom.where(system='phone');
 
           var fname = '';
           var lname = '';
