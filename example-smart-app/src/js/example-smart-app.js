@@ -28,12 +28,12 @@
       //}
     }
     
-    function displayConfition (condition) {
+    function displayCondition (condition) {
       var table = document.getElementById("cond_table");
       var row = table.insertRow(1);
       var cell1 = row.insertCell(0);
       var cell2 = row.insertCell(1);
-      cell1.innerHTML = '1';
+      cell1.innerHTML = condition.
       cell2.innerHTML = '2';
       
       //if (typeof observation.code.coding[0].code != 'undefined' &&
@@ -49,6 +49,26 @@
       //}
     }
     
+    
+    
+
+    function xml_to_string(xml_node)
+    {
+        if (xml_node.xml)
+            return xml_node.xml;
+        else if (XMLSerializer)
+        {
+            var xml_serializer = new XMLSerializer();
+            return xml_serializer.serializeToString(xml_node);
+        }
+        else
+        {
+            alert("ERROR: Extremely old browser");
+            return "";
+        }
+    }
+    
+
     function onReady(smart)  {
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
@@ -79,6 +99,9 @@
           });
         });
         
+        // display in alert box
+        alert(xml_to_string(smart.patient.api.fetchAll({type: 'Observation'})));
+        
         $.when(pt, obv).fail(onError);
 
         $.when(pt, obv).done(function(patient, obv) {
@@ -96,7 +119,7 @@
             lname = patient.name[0].family.join(' ');
           }
 
-          fname = "Test23";
+          fname = "Test24";
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
           var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
