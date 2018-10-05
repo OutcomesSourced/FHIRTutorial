@@ -15,7 +15,8 @@
       //cell1.innerHTML = '1';
       cell2.innerHTML = '2';
       
-      if (typeof observation.code.coding[0].code != 'undefined') {
+      if (typeof observation.code.coding[0].code != 'undefined' &&
+          typeof observation.code.coding[0] != 'undefined') {
           cell1.innerHTML = observation.code.coding[0].code;
         } else {
           cell1.innerHTML = 'Missing Value';
@@ -67,7 +68,7 @@
             lname = patient.name[0].family.join(' ');
           }
 
-          fname = "Test20";
+          fname = "Test21";
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
           var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
