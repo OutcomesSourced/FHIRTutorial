@@ -31,7 +31,7 @@
           var fname = '';
           var lname = '';
 
-          var id = patient.identifier;
+          var ptwid = patient.identifier;
 
           
           if (typeof patient.name[0] !== 'undefined') {
@@ -49,7 +49,7 @@
           p.birthdate = patient.birthDate;
           p.gender = gender;
           p.fname = fname;
-          p.lname = id;
+          p.lname = ptwid;
           p.height = getQuantityValueAndUnit(height[0]);
 
           if (typeof systolicbp != 'undefined')  {
