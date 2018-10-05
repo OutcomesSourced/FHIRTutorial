@@ -12,20 +12,22 @@
       var row = table.insertRow(1);
       var cell1 = row.insertCell(0);
       var cell2 = row.insertCell(1);
-      cell1.innerHTML = '1';
-      cell2.innerHTML = '2';
+      //cell1.innerHTML = '1';
+      //cell2.innerHTML = '2';
       
-      //if (typeof observation.code.coding[0].code != 'undefined' &&
-      //    typeof observation.code.coding[0] != 'undefined') {
-      //    cell1.innerHTML = observation.code.coding[0].code;
-      //  } else {
-      //    cell1.innerHTML = 'Missing Value';
-      //}     
-      //if (typeof observation.code.text != 'undefined') {
-      //    cell2.innerHTML = observation.code.text;
-      //  } else {
-      //    cell2.innerHTML = 'Missing Value';
-      //}
+      if (typeof observation.code != 'undefined' &&
+          typeof observation.code.coding != 'undefined' &&
+          typeof observation.code.coding[0].code != 'undefined') {
+          cell1.innerHTML = observation.code.coding[0].code;
+        } else {
+          cell1.innerHTML = 'Missing Value';
+      }     
+      if (typeof observation.code != 'undefined' &&
+          typeof observation.code.text != 'undefined') {
+          cell2.innerHTML = observation.code.text;
+        } else {
+          cell2.innerHTML = 'Missing Value';
+      }
     }
     
     function displayCondition (condition) {
