@@ -32,7 +32,7 @@
           var lname = '';
 
 
-          var gender = "female";
+          gender = "female";
           
           if (typeof patient.name[0] !== 'undefined') {
             fname = patient.name[0].given.join(' ');
