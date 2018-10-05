@@ -30,27 +30,27 @@
       }
     }
     
-    function displayCondition (conditiona) {
+    function displayCondition (condition) {
       var table = document.getElementById("cond_table");
       var row = table.insertRow(1);
       var cell1 = row.insertCell(0);
       var cell2 = row.insertCell(1);
-      cell1.innerHTML = '1';
-      cell2.innerHTML = conditona.code.coding[0].code; //'2';
+      //cell1.innerHTML = '1';
+      //cell2.innerHTML = condition.code.coding[0].code; //'2';
       
-      /*if (typeof conditona.code != 'undefined' &&
-          typeof conditona.code.coding != 'undefined' &&
-          typeof conditona.code.coding[0].code != 'undefined') {
-          cell1.innerHTML = conditona.code.coding[0].code;
+      if (typeof condition.code != 'undefined' &&
+          typeof condition.code.coding != 'undefined' &&
+          typeof condition.code.coding[0].code != 'undefined') {
+          cell1.innerHTML = condition.code.coding[0].code;
         } else {
           cell1.innerHTML = 'Missing Value';
       }    
-      if (typeof conditona.code != 'undefined' &&
-          typeof conditona.code.text != 'undefined') {
-          cell2.innerHTML = conditona.code.text;
+      if (typeof condition.code != 'undefined' &&
+          typeof condition.code.text != 'undefined') {
+          cell2.innerHTML = condition.code.text;
         } else {
           cell2.innerHTML = 'Missing Value';
-      }*/ 
+      }
     }
     
     
@@ -123,7 +123,7 @@
             lname = patient.name[0].family.join(' ');
           }
 
-          fname = "Test38";
+          fname = "Test39";
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
           var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
