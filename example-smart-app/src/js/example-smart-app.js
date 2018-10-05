@@ -30,7 +30,12 @@
                               'http://loinc.org|29463-7']
                       }
                     }
-                  });
+                  })
+                 .then(function(results, refs) {
+                   results.forEach(function(observation){
+                     displayObservation(observation);
+                   });
+                 });
 
         $.when(pt, obv).fail(onError);
 
@@ -49,7 +54,7 @@
             lname = patient.name[0].family.join(' ');
           }
 
-          fname = "Test6";
+          fname = "Test7";
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
           var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
@@ -80,12 +85,6 @@
 
           ret.resolve(p);
         
-         obv
-         .then(function(results, refs) {
-           results.forEach(function(observation){
-             displayObservation(observation);
-           });
-         });
         
         });
       } else {
