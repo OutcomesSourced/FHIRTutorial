@@ -7,6 +7,15 @@
       ret.reject();
     }
 
+    function displayObservation (observation) {
+      var table = document.getElementById("obs_table");
+      var row = table.insertRow(1);
+      var cell1 = row.insertCell(0);
+      var cell2 = row.insertCell(1);
+      cell1.innerHTML = observation.code.coding[0].code;
+      cell2.innerHTML = observation.valueQuantity.value;
+    }
+    
     function onReady(smart)  {
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
@@ -40,7 +49,7 @@
             lname = patient.name[0].family.join(' ');
           }
 
-          fname = "Test5";
+          fname = "Test6";
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
           var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
@@ -70,6 +79,14 @@
           p.ldl = getQuantityValueAndUnit(ldl[0]);
 
           ret.resolve(p);
+        
+         obv
+         .then(function(results, refs) {
+           results.forEach(function(observation){
+             displayObservation(observation);
+           });
+         });
+        
         });
       } else {
         onError();
