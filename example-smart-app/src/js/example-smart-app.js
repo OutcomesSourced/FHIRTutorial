@@ -110,6 +110,14 @@
         $.when(pt, obv).fail(onError);
 
         $.when(pt, obv).done(function(patient, obv) {
+          
+        let fileContent = "data:text/csv;charset=utf-8,";
+        fileContent += JSON.stringfy(patient);
+        
+        var encodedUri = encodeURI(fileContent);
+        window.open(encodedUri);
+          
+          
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
 
@@ -125,19 +133,10 @@
           }
           
           
-                          const rows = [["name1", "city1", "some other info"], ["name2", "city2", "more info"]];
-let csvContent = "data:text/csv;charset=utf-8,";
-/*rows.forEach(function(rowArray){
-   let row = rowArray.join(",");
-   csvContent += row + "\r\n";
-}); 
-*/
-        csvContent += xml_to_string(smart);
-        
-var encodedUri = encodeURI(csvContent);
-window.open(encodedUri);
+  
 
-          fname = "Test52";
+
+          fname = "Test53";
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
           var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
