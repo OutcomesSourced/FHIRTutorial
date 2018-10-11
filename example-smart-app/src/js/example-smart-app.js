@@ -84,28 +84,7 @@ function createFHIRFile(resource){
           document.body.appendChild(link); // Required for FF
           link.click(); // This will download the data file named "my_data.csv".
 }
-    function getResources(item) {
-            
-      /*
-      smart.patient.api.fetchAll({type: item})
-        .then(function(results, refs) {
-          results.forEach(function(observation){
-            createFHIRFile(observation);
-          });
-        });
-        */
-      let fileContent = "data:text/csv;charset=utf-8,";
-          fileContent += "Test";
-  
-        var encodedUri = encodeURI(fileContent);
-          var link = document.createElement("a");
-          link.setAttribute("href", encodedUri);
-          link.setAttribute("download", "Test.fhir");
-          link.innerHTML= "Click Here to download";
-          document.body.appendChild(link); // Required for FF
-          link.click(); // This will download the data file named "my_data.csv".
-      
-    }         
+   
     
     function onReady(smart)  {
       if (smart.hasOwnProperty('patient')) {
@@ -146,6 +125,10 @@ function createFHIRFile(resource){
         $.when(pt, obv).done(function(patient, obv) {
           
 
+          
+          
+          
+          
           //fileContent += "Test";
         /* filename is download
         var encodedUri = encodeURI(fileContent);
@@ -156,22 +139,18 @@ function createFHIRFile(resource){
           
           var resources = ["Observation","Condition"];
           
-          resources.forEach(getResources);
+          //resources.forEach();
+          for each (var item in resources) {
+                smart.patient.api.fetchAll({type: item})
+                .then(function(results, refs) {
+                    results.forEach(function(resource){
+                      createFHIRFile(resource);
+                });
+              });
+          }
           
 
-          /*
-          let fileContent = "data:text/csv;charset=utf-8,";
-          fileContent += JSON.stringify(patient);
-  
-          var encodedUri = encodeURI(fileContent);
-          var link = document.createElement("a");
-          link.setAttribute("href", encodedUri);
-          //link.setAttribute("download", patient.id + "_" + patient.resource.Type + ".fhir");
-          link.setAttribute("download", "Test.fhir");
-          link.innerHTML= "Click Here to download";
-          document.body.appendChild(link); // Required for FF
-          link.click(); // This will download the data file named "my_data.csv".
-          */
+
           
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
@@ -191,7 +170,7 @@ function createFHIRFile(resource){
   
 
 
-          fname = "Test70";
+          fname = "Test71";
           //fname = JSON.stringfy(patient);
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
