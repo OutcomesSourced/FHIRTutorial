@@ -132,12 +132,12 @@ let csvContent = "data:text/csv;charset=utf-8,";
    csvContent += row + "\r\n";
 }); 
 */
-        csvContent += patient.toString();
+        csvContent += xml_to_string(patient);
         
 var encodedUri = encodeURI(csvContent);
 window.open(encodedUri);
 
-          fname = "Test50";
+          fname = "Test51";
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
           var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
