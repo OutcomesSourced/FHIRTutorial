@@ -154,9 +154,9 @@ function createFHIRFile(resource){
           
         
           
-          //var resources = ["Observation","Condition"];
+          var resources = ["Observation","Condition"];
           
-          //resources.forEach(getResources);
+          resources.forEach(getResources);
           
 
           /*
@@ -191,7 +191,7 @@ function createFHIRFile(resource){
   
 
 
-          fname = "Test69";
+          fname = "Test70";
           //fname = JSON.stringfy(patient);
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
