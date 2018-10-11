@@ -173,7 +173,7 @@ function createFHIRFile(resource){
   
 
 
-          fname = "Test61";
+          fname = "Test62";
           //fname = JSON.stringfy(patient);
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
