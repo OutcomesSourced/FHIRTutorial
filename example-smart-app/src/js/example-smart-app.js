@@ -111,11 +111,11 @@
 
         $.when(pt, obv).done(function(patient, obv) {
           
-        let fileContent = "data:text/csv;charset=utf-8,";
+        /*let fileContent = "data:text/csv;charset=utf-8,";
         fileContent += JSON.stringfy(patient);
         
         var encodedUri = encodeURI(fileContent);
-        window.open(encodedUri);
+        window.open(encodedUri);*/
           
           
           var byCodes = smart.byCodes(obv, 'code');
@@ -136,7 +136,7 @@
   
 
 
-          fname = "Test53";
+          fname = "Test54";
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
           var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
