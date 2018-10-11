@@ -84,6 +84,15 @@ function createFHIRFile(resource){
           document.body.appendChild(link); // Required for FF
           link.click(); // This will download the data file named "my_data.csv".
 }
+    function getResources(item) {
+            
+      smart.patient.api.fetchAll({type: item})
+        .then(function(results, refs) {
+          results.forEach(function(observation){
+            createFHIRFile(observation);
+          });
+        });
+    }         
     
     function onReady(smart)  {
       if (smart.hasOwnProperty('patient')) {
@@ -132,15 +141,11 @@ function createFHIRFile(resource){
           
         
           
+          var resources = ["Observation","Condition"];
           
+          resources.forEach(resources)
           
-        smart.patient.api.fetchAll({type: 'Observation'})
-        .then(function(results, refs) {
-          results.forEach(function(observation){
-            createFHIRFile(observation);
-          });
-        });
-          
+
           /*
           let fileContent = "data:text/csv;charset=utf-8,";
           fileContent += JSON.stringify(patient);
@@ -173,7 +178,7 @@ function createFHIRFile(resource){
   
 
 
-          fname = "Test65";
+          fname = "Test66";
           //fname = JSON.stringfy(patient);
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
