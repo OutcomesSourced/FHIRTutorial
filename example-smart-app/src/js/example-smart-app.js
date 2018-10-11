@@ -154,9 +154,9 @@ function createFHIRFile(resource){
           
         
           
-          var resources = ["Observation","Condition"];
+          //var resources = ["Observation","Condition"];
           
-          resources.forEach(getResources);
+          //resources.forEach(getResources);
           
 
           /*
