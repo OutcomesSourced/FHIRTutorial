@@ -114,9 +114,19 @@
         let fileContent = "data:text/csv;charset=utf-8,";
         fileContent += JSON.stringify(patient);
           //fileContent += "Test";
-        
+        /* filename is download
         var encodedUri = encodeURI(fileContent);
         window.open(encodedUri);
+          */
+          
+          var encodedUri = encodeURI(fileContent);
+          var link = document.createElement("a");
+          link.setAttribute("href", encodedUri);
+          link.setAttribute("download", "my_data.csv");
+          link.innerHTML= "Click Here to download";
+          document.body.appendChild(link); // Required for FF
+
+          link.click(); // This will download the data file named "my_data.csv".
           
           
           var byCodes = smart.byCodes(obv, 'code');
@@ -137,7 +147,7 @@
   
 
 
-          fname = "Test57";
+          fname = "Test58";
           //fname = JSON.stringfy(patient);
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
