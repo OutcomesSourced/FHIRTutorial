@@ -150,7 +150,7 @@ function createFHIRFile(resource){
               });
 */
           
-          resources.forEach(funtion(resourceType){
+          object.keys(resources).forEach(funtion(resourceType){
           smart.patient.api.fetchAll({type: resourceType})
           .then(function(results, refs) {
             results.forEach(function(resource){
@@ -178,7 +178,7 @@ function createFHIRFile(resource){
   
 
 
-          fname = "Test73";
+          fname = "Test74";
           //fname = JSON.stringfy(patient);
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
