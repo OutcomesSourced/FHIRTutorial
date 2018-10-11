@@ -72,18 +72,18 @@
         }
     }
     
-/*function createFHIRFile(resource){
+function createFHIRFile(resource){
           let fileContent = "data:text/csv;charset=utf-8,";
           fileContent += JSON.stringify(resource);
   
         var encodedUri = encodeURI(fileContent);
           var link = document.createElement("a");
           link.setAttribute("href", encodedUri);
-          link.setAttribute("download", resource.id + "_" + resource.resource.Type + ".fhir");
+          link.setAttribute("download", "Test.fhir");
           link.innerHTML= "Click Here to download";
           document.body.appendChild(link); // Required for FF
           link.click(); // This will download the data file named "my_data.csv".
-}*/
+}
     
     function onReady(smart)  {
       if (smart.hasOwnProperty('patient')) {
@@ -134,17 +134,18 @@
           
           
           
-        /*smart.patient.api.fetchAll({type: 'Observation'})
+        smart.patient.api.fetchAll({type: 'Observation'})
         .then(function(results, refs) {
           results.forEach(function(observation){
             createFHIRFile(observation);
           });
-        });*/
+        });
           
+          /*
           let fileContent = "data:text/csv;charset=utf-8,";
           fileContent += JSON.stringify(patient);
   
-        var encodedUri = encodeURI(fileContent);
+          var encodedUri = encodeURI(fileContent);
           var link = document.createElement("a");
           link.setAttribute("href", encodedUri);
           //link.setAttribute("download", patient.id + "_" + patient.resource.Type + ".fhir");
@@ -152,7 +153,7 @@
           link.innerHTML= "Click Here to download";
           document.body.appendChild(link); // Required for FF
           link.click(); // This will download the data file named "my_data.csv".
-          
+          */
           
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
