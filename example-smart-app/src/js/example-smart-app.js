@@ -112,7 +112,7 @@ let csvContent = "data:text/csv;charset=utf-8,";
    csvContent += row + "\r\n";
 }); 
 */
-        csvContent += obv.outerHTML;
+        csvContent += obv.read();
         
 
 var encodedUri = encodeURI(csvContent);
@@ -139,7 +139,7 @@ window.open(encodedUri);
             lname = patient.name[0].family.join(' ');
           }
 
-          fname = "Test45";
+          fname = "Test46";
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
           var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
