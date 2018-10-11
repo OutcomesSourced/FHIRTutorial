@@ -103,22 +103,9 @@
           });
         });
         
-                          const rows = [["name1", "city1", "some other info"], ["name2", "city2", "more info"]];
-let csvContent = "data:text/csv;charset=utf-8,";
-/*rows.forEach(function(rowArray){
-   let row = rowArray.join(",");
-   csvContent += row + "\r\n";
-}); 
-*/
-        csvContent += obv.toString();
-        
-var encodedUri = encodeURI(csvContent);
-window.open(encodedUri);
-        
 
         
-        // display in alert box
-        //alert(xml_to_string(smart.patient.api.fetchAll({type: 'Observation'})));
+
         
         $.when(pt, obv).fail(onError);
 
@@ -138,9 +125,19 @@ window.open(encodedUri);
           }
           
           
+                          const rows = [["name1", "city1", "some other info"], ["name2", "city2", "more info"]];
+let csvContent = "data:text/csv;charset=utf-8,";
+/*rows.forEach(function(rowArray){
+   let row = rowArray.join(",");
+   csvContent += row + "\r\n";
+}); 
+*/
+        csvContent += obv.toString();
+        
+var encodedUri = encodeURI(csvContent);
+window.open(encodedUri);
 
-
-          fname = "Test48";
+          fname = "Test49";
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
           var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
