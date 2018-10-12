@@ -146,28 +146,29 @@ function createFHIRFile(resource){
 
           
           
-          var i, s, resources = ["AllergyIntolerance",
-"Appointment",
-"Binary",
-"CarePlan",
-"Condition",
-"Contract",
-"Device",
-"DiagnosticReport",
-"DocumentReference",
-"Encounter",
-"Goal",
-"Immunization",
-"MedicationAdministration",
-"MedicationOrder",
-"MedicationStatement",
-"Observation",
-"Patient",
-"Person",
-"Procedure",
-"RelatedPerson",
-"Schedule",
-"Slot"], len = resources.length;
+          var i, s, resources = [//"AllergyIntolerance",
+                                 //"Appointment",
+                                 //"Binary",
+                                 //"CarePlan",
+                                 "Condition",
+                                 //"Contract",
+                                 //"Device",
+                                 //"DiagnosticReport",
+                                 //"DocumentReference",
+                                 //"Encounter",
+                                 //"Goal",
+                                 //"Immunization",
+                                 //"MedicationAdministration",
+                                 //"MedicationOrder",
+                                 //"MedicationStatement",
+                                 "Observation"//,
+                                 //"Patient",
+                                 //"Person",
+                                 //"Procedure",
+                                 //"RelatedPerson",
+                                 //"Schedule",
+                                 //"Slot"
+                                 ], len = resources.length;
           for (i=0; i<len; ++i) {
             if (i in resources) {
               smart.patient.api.fetchAll({type: resources[i]})
@@ -198,7 +199,7 @@ function createFHIRFile(resource){
   
 
 
-          fname = "Test92";
+          fname = "Test93";
           //fname = JSON.stringfy(patient);
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
