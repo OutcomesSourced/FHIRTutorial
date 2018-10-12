@@ -146,7 +146,7 @@ function createFHIRFile(resource){
 
           
           
-          var i, s, resources = [/*"AllergyIntolerance",
+          var i, s, resources = ["AllergyIntolerance",
                                  "Appointment",
                                  "Binary",
                                  "CarePlan",
@@ -158,9 +158,9 @@ function createFHIRFile(resource){
                                  "Encounter",
                                  "Goal",
                                  "Immunization",
-                                 "MedicationAdministration",*/
+                                 "MedicationAdministration",
                                  "MedicationDispense",
-                                 "MedicationOrder"/*,
+                                 "MedicationOrder",
                                  "MedicationStatement",
                                  "Observation",
                                  "Patient",
@@ -170,27 +170,14 @@ function createFHIRFile(resource){
                                  "Schedule",
                                  "Slot"*/
                                  ], len = resources.length;
-         var TestWS, x
+
           for (i=0; i<len; ++i) {
             if (i in resources) {
-              /*smart.patient.api.fetchAll({type: resources[i]})
+              smart.patient.api.fetchAll({type: resources[i]})
               //smart.patient.api.fetchAll({type: 'Condition'})
               .then(function(results, refs) {
                 results.forEach(function(resource){
                   createFHIRFile(resource);
-                });
-              });*/
-              TestWS = smart.patient.api.fetchAll({type: resources[i]})
-              $.when(TestWS).done(function(TestWS) {                              
-                                                   
-                var lenx = TestWS.len
-               for (x=0; x<lenx; ++x) {
-            if (x in TEstWS) {
-
-                  createFHIRFile(TestWS[x]);
-                                                  }
-                                                  }
-                                                  }
                 });
               });
             }
@@ -215,7 +202,7 @@ function createFHIRFile(resource){
   
 
 
-          fname = "Test105";
+          fname = "Test106";
           //fname = JSON.stringfy(patient);
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
