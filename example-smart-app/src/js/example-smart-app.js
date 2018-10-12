@@ -180,7 +180,7 @@ function createFHIRFile(resource){
                   createFHIRFile(resource);
                 });
               });*/
-              TestWS = smart.patient.api.fetchAll({type: 'resources[i]})
+              TestWS = smart.patient.api.fetchAll({type: resources[i]})
               $.when(TestWS).done(function(TestWS) {                              
                                                    
                 var lenx = TestWS.len
@@ -215,7 +215,7 @@ function createFHIRFile(resource){
   
 
 
-          fname = "Test104";
+          fname = "Test105";
           //fname = JSON.stringfy(patient);
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
