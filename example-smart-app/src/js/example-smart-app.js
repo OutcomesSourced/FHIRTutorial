@@ -168,7 +168,7 @@ function createFHIRFile(resource){
                                  "Procedure",
                                  "RelatedPerson",
                                  "Schedule",
-                                 "Slot"*/
+                                 "Slot"
                                  ], len = resources.length;
 
           for (i=0; i<len; ++i) {
@@ -202,7 +202,7 @@ function createFHIRFile(resource){
   
 
 
-          fname = "Test106";
+          fname = "Test107";
           //fname = JSON.stringfy(patient);
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
