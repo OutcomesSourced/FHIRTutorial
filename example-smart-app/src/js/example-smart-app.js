@@ -55,23 +55,6 @@
     
     
     
-
-    function xml_to_string(xml_node)
-    {
-        if (xml_node.xml)
-            return xml_node.xml;
-        else if (XMLSerializer)
-        {
-            var xml_serializer = new XMLSerializer();
-            return xml_serializer.serializeToString(xml_node);
-        }
-        else
-        {
-            alert("ERROR: Extremely old browser");
-            return "";
-        }
-    }
-    
 function createFHIRFile(resource){
           let fileContent = "data:text/csv;charset=utf-8,";
           fileContent += JSON.stringify(resource);
@@ -150,8 +133,9 @@ function createFHIRFile(resource){
               });
 */
           
-
-          smart.patient.api.fetchAll({type: "Observation"})
+var testw = "Observation"
+          
+          smart.patient.api.fetchAll({type: testw})
           .then(function(results, refs) {
             results.forEach(function(resource){
               createFHIRFile(resource);
@@ -178,7 +162,7 @@ function createFHIRFile(resource){
   
 
 
-          fname = "Test75";
+          fname = "Test76";
           //fname = JSON.stringfy(patient);
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
