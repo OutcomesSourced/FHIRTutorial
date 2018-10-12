@@ -54,7 +54,7 @@
     }
     
     
-    
+    /*
 function createFHIRFile(resource){
           let fileContent = "data:text/csv;charset=utf-8,";
           fileContent += JSON.stringify(resource);
@@ -72,6 +72,7 @@ function createFHIRFile(resource){
           document.body.appendChild(link); // Required for FF
           link.click(); // This will download the data file named "my_data.csv".
 }
+*/
    
     
     function onReady(smart)  {
@@ -170,7 +171,7 @@ function createFHIRFile(resource){
   
 
 
-          fname = "Test83";
+          fname = "Test84";
           //fname = JSON.stringfy(patient);
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
