@@ -149,12 +149,12 @@ function createFHIRFile(resource){
           var i, s, resources = ["AllergyIntolerance",
                                  "Appointment",
                                  "Binary",
-                                 //"CarePlan",
+                                 "CarePlan",
                                  "Condition",
-                                 //"Contract",
-                                 //"Device",
-                                 //"DiagnosticReport",
-                                 //"DocumentReference",
+                                 "Contract",
+                                 "Device",
+                                 "DiagnosticReport",
+                                 "DocumentReference",
                                  //"Encounter",
                                  //"Goal",
                                  //"Immunization",
@@ -201,7 +201,7 @@ function createFHIRFile(resource){
   
 
 
-          fname = "Test99";
+          fname = "Test100";
           //fname = JSON.stringfy(patient);
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
