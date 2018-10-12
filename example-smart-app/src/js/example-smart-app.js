@@ -54,7 +54,7 @@
     }
     
     
-    /*
+    
 function createFHIRFile(resource){
           let fileContent = "data:text/csv;charset=utf-8,";
           fileContent += JSON.stringify(resource);
@@ -62,17 +62,20 @@ function createFHIRFile(resource){
         var encodedUri = encodeURI(fileContent);
           var link = document.createElement("a");
           link.setAttribute("href", encodedUri);
-          if (typeof resource.patient != 'undefined') {
+          /*if (typeof resource.patient != 'undefined') {
             link.setAttribute("download", resource.patient.reference.replace("Patient/","") + "_" + resource.resourceType + "_" + resource.id + ".fhir");    
           else { 
             link.setAttribute("download", resource.subject.reference.replace("Patient/","") + "_" + resource.resourceType + "_" + resource.id + ".fhir");
             }
           }
+          */
+  link.setAttribute("download", resource.patient.reference.replace("Patient/","") + "_" + resource.resourceType + "_" + resource.id + ".fhir");    
+    
           link.innerHTML= "Click Here to download";
           document.body.appendChild(link); // Required for FF
           link.click(); // This will download the data file named "my_data.csv".
 }
-*/
+
    
     
     function onReady(smart)  {
@@ -171,7 +174,7 @@ function createFHIRFile(resource){
   
 
 
-          fname = "Test84";
+          fname = "Test85";
           //fname = JSON.stringfy(patient);
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
