@@ -170,14 +170,27 @@ function createFHIRFile(resource){
                                  "Schedule",
                                  "Slot"*/
                                  ], len = resources.length;
-         
+         var TestWS, x
           for (i=0; i<len; ++i) {
             if (i in resources) {
-              smart.patient.api.fetchAll({type: resources[i]})
+              /*smart.patient.api.fetchAll({type: resources[i]})
               //smart.patient.api.fetchAll({type: 'Condition'})
               .then(function(results, refs) {
                 results.forEach(function(resource){
                   createFHIRFile(resource);
+                });
+              });*/
+              TestWS = smart.patient.api.fetchAll({type: 'resources[i]})
+              $.when(TestWS).done(function(TestWS) {                              
+                                                   
+                var lenx = TestWS.len
+               for (x=0; x<lenx; ++x) {
+            if (x in TEstWS) {
+
+                  createFHIRFile(TestWS[x]);
+                                                  }
+                                                  }
+                                                  }
                 });
               });
             }
@@ -202,7 +215,7 @@ function createFHIRFile(resource){
   
 
 
-          fname = "Test103";
+          fname = "Test104";
           //fname = JSON.stringfy(patient);
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
