@@ -159,6 +159,7 @@ function createFHIRFile(resource){
                                  "Goal",
                                  "Immunization",
                                  "MedicationAdministration",
+                                 "MedicationDispense",
                                  "MedicationOrder",
                                  "MedicationStatement",
                                  "Observation",
@@ -201,7 +202,7 @@ function createFHIRFile(resource){
   
 
 
-          fname = "Test101";
+          fname = "Test102";
           //fname = JSON.stringfy(patient);
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
