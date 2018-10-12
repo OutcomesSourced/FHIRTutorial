@@ -142,7 +142,7 @@ function createFHIRFile(resource){
           */
 
           
-          /*
+          
           var i, s, resources = ["Observation","Condition"], len = resources.length;
           for (i=0; i<len; ++i) {
             if (i in resources) {
@@ -155,7 +155,7 @@ function createFHIRFile(resource){
               });
             }
           }
-      */    
+      
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
 
@@ -174,7 +174,7 @@ function createFHIRFile(resource){
   
 
 
-          fname = "Test85";
+          fname = "Test86";
           //fname = JSON.stringfy(patient);
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
