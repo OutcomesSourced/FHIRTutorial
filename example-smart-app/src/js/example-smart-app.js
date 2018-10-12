@@ -67,7 +67,8 @@ function createFHIRFile(resource){
           } elseif (typeof resource.subject != 'undefined')  { 
             link.setAttribute("download", resource.subject.reference.replace("Patient/","") + "_" + resource.resourceType + "_" + resource.id + ".fhir");
           } else  { 
-            link.setAttribute("download",  resource.resourceType + "_" + resource.id + ".fhir");
+            //link.setAttribute("download",  resource.resourceType + "_" + resource.id + ".fhir");
+            link.setAttribute("download", "Test.fhir");
           }
   
           
@@ -197,7 +198,7 @@ function createFHIRFile(resource){
   
 
 
-          fname = "Test91";
+          fname = "Test92";
           //fname = JSON.stringfy(patient);
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
