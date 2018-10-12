@@ -58,25 +58,26 @@
 function createFHIRFile(resource){
           let fileContent = "data:text/csv;charset=utf-8,";
           fileContent += JSON.stringify(resource);
+          var fileName = ""
+          if (typeof resource.patient != 'undefined') {
+            fileName = resource.patient.reference.replace("Patient/","") + "_" + resource.resourceType + "_" + resource.id + ".fhir";    
+          } else if (typeof resource.subject != 'undefined')  { 
+            fileName = resource.subject.reference.replace("Patient/","") + "_" + resource.resourceType + "_" + resource.id + ".fhir";
+          } else  { 
+            fileName = resource.resourceType + "_" + resource.id + ".fhir";
+            //link.setAttribute("download", "Test.fhir");
+          }
   
         var encodedUri = encodeURI(fileContent);
           var link = document.createElement("a");
           link.setAttribute("href", encodedUri);
-          if (typeof resource.patient != 'undefined') {
-            link.setAttribute("download", resource.patient.reference.replace("Patient/","") + "_" + resource.resourceType + "_" + resource.id + ".fhir");    
-          } else if (typeof resource.subject != 'undefined')  { 
-            link.setAttribute("download", resource.subject.reference.replace("Patient/","") + "_" + resource.resourceType + "_" + resource.id + ".fhir");
-          } else  { 
-            link.setAttribute("download",  resource.resourceType + "_" + resource.id + ".fhir");
-            //link.setAttribute("download", "Test.fhir");
-          }
-  
           
-  //link.setAttribute("download", resource.patient.reference.replace("Patient/","") + "_" + resource.resourceType + "_" + resource.id + ".fhir");    
-    
-          link.innerHTML= "Click Here to download";
+          link.setAttribute("download", fileName);    
+          link.innerHTML= "Click Here to download" + fileName;
           document.body.appendChild(link); // Required for FF
           link.click(); // This will download the data file named "my_data.csv".
+  var breaker = document.createElement("br");
+  document.body.appendChild(breaker)
 }
 
    
@@ -202,7 +203,7 @@ function createFHIRFile(resource){
   
 
 
-          fname = "Test108";
+          fname = "Test109";
           //fname = JSON.stringfy(patient);
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
