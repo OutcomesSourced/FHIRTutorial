@@ -62,14 +62,13 @@ function createFHIRFile(resource){
         var encodedUri = encodeURI(fileContent);
           var link = document.createElement("a");
           link.setAttribute("href", encodedUri);
-          /*if (typeof resource.patient != 'undefined') {
+          if (typeof resource.patient != 'undefined') {
             link.setAttribute("download", resource.patient.reference.replace("Patient/","") + "_" + resource.resourceType + "_" + resource.id + ".fhir");    
-          else { 
+          } else { 
             link.setAttribute("download", resource.subject.reference.replace("Patient/","") + "_" + resource.resourceType + "_" + resource.id + ".fhir");
             }
-          }
-          */
-  link.setAttribute("download", resource.patient.reference.replace("Patient/","") + "_" + resource.resourceType + "_" + resource.id + ".fhir");    
+          
+  //link.setAttribute("download", resource.patient.reference.replace("Patient/","") + "_" + resource.resourceType + "_" + resource.id + ".fhir");    
     
           link.innerHTML= "Click Here to download";
           document.body.appendChild(link); // Required for FF
@@ -174,7 +173,7 @@ function createFHIRFile(resource){
   
 
 
-          fname = "Test86";
+          fname = "Test87";
           //fname = JSON.stringfy(patient);
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
