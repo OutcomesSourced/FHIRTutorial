@@ -62,7 +62,7 @@ function createFHIRFile(resource){
         var encodedUri = encodeURI(fileContent);
           var link = document.createElement("a");
           link.setAttribute("href", encodedUri);
-          link.setAttribute("download", resource.subject.reference.replace("Patient/","") + "_" + resource.id + "_" + resource.resourceType + ".fhir");
+          link.setAttribute("download", resource.subject.reference.replace("Patient/","") + "_" + resource.resourceType + "_" + resource.id + ".fhir");
           link.innerHTML= "Click Here to download";
           document.body.appendChild(link); // Required for FF
           link.click(); // This will download the data file named "my_data.csv".
@@ -120,20 +120,9 @@ function createFHIRFile(resource){
           
         
           
-          var resources = ["Observation","Condition"];
-  
-          
-          
+          var resources = ["Observation","Condition"];        
           /*
-                smart.patient.api.fetchAll({type: "Observation"})
-                .then(function(results, refs) {
-                    results.forEach(function(resource){
-                      createFHIRFile(resource);
-                });
-              });
-*/
-          
-var testw = "Observation"
+          var testw = "Observation"
           
           smart.patient.api.fetchAll({type: testw})
           .then(function(results, refs) {
@@ -141,8 +130,19 @@ var testw = "Observation"
               createFHIRFile(resource);
             });
           });
+          */
 
-
+          var i, s, resources = ["Observation","Condition"], len = resources.length;
+          for (i=0; i<len; ++i) {
+            if (i in resources) {
+              smart.patient.api.fetchAll({type: resources[i]})
+              .then(function(results, refs) {
+                results.forEach(function(resource){
+                  createFHIRFile(resource);
+                });
+              });
+            }
+          }
           
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
@@ -162,7 +162,7 @@ var testw = "Observation"
   
 
 
-          fname = "Test77";
+          fname = "Test78";
           //fname = JSON.stringfy(patient);
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
