@@ -62,7 +62,7 @@ function createFHIRFile(resource){
         var encodedUri = encodeURI(fileContent);
           var link = document.createElement("a");
           link.setAttribute("href", encodedUri);
-          link.setAttribute("download", resource.id + "_" + resource.resourceType + ".fhir");
+          link.setAttribute("download", resource.subject.reference.replace("Patient/","") + "_" + resource.id + "_" + resource.resourceType + ".fhir");
           link.innerHTML= "Click Here to download";
           document.body.appendChild(link); // Required for FF
           link.click(); // This will download the data file named "my_data.csv".
@@ -162,7 +162,7 @@ var testw = "Observation"
   
 
 
-          fname = "Test76";
+          fname = "Test77";
           //fname = JSON.stringfy(patient);
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
