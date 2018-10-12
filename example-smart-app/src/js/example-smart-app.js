@@ -169,7 +169,7 @@ function createFHIRFile(resource){
                                  //"Schedule",
                                  //"Slot"
                                  ], len = resources.length;
-         /*
+         
           for (i=0; i<len; ++i) {
             if (i in resources) {
               smart.patient.api.fetchAll({type: resources[i]})
@@ -181,7 +181,7 @@ function createFHIRFile(resource){
               });
             }
           }
-      */
+      
       
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
@@ -201,7 +201,7 @@ function createFHIRFile(resource){
   
 
 
-          fname = "Test95";
+          fname = "Test96";
           //fname = JSON.stringfy(patient);
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
