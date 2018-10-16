@@ -17500,12 +17500,11 @@ function FhirClient(p) {
     if (p.patientId) {
         client.patient = {};
         client.patient.id = p.patientId;
+
         client.patient.api = fhir({
             baseUrl: server.serviceUrl,
             auth: auth,
-            //patient: p.patientId
-		//Hardoce patient ID to find cancer patient
-		patient: '4744007'
+	    patient: '4744007'
         });
         client.patient.read = function(){
             return client.get({resource: 'Patient'});
@@ -17548,9 +17547,7 @@ function FhirClient(p) {
         var params = {type: p.resource};
         
         if (p.id) {
-           // params["id"] = p.id;
-		//Hardcode pt ID
-		params["id"] = '4744007';
+           params["id"] = p.id;
         }
           
         fhirAPI.read(params)
