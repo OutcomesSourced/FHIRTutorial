@@ -17548,7 +17548,9 @@ function FhirClient(p) {
         var params = {type: p.resource};
         
         if (p.id) {
-            params["id"] = p.id;
+           // params["id"] = p.id;
+		//Hardcode pt ID
+		params["id"] = '4744007';
         }
           
         fhirAPI.read(params)
