@@ -63,6 +63,8 @@ function createFHIRFile(resource){
             fileName = resource.patient.reference.replace("Patient/","") + "_" + resource.resourceType + "_" + resource.id + ".fhir";    
           } else if (typeof resource.subject != 'undefined')  { 
             fileName = resource.subject.reference.replace("Patient/","") + "_" + resource.resourceType + "_" + resource.id + ".fhir";
+          } else if (typeof resource.resourceType = 'Patient')  { 
+            fileName = resource.id.reference.replace("Patient/","") + "_" + resource.resourceType + "_" + resource.id + ".fhir";
           } else  { 
             fileName = resource.resourceType + "_" + resource.id + ".fhir";
             //link.setAttribute("download", "Test.fhir");
@@ -73,7 +75,7 @@ function createFHIRFile(resource){
           link.setAttribute("href", encodedUri);
           
           link.setAttribute("download", fileName);    
-          link.innerHTML= "Click Here to download" + fileName;
+          link.innerHTML= "Click Here to download " + fileName;
           document.body.appendChild(link); // Required for FF
           link.click(); // This will download the data file named "my_data.csv".
   var breaker = document.createElement("br");
@@ -203,7 +205,7 @@ function createFHIRFile(resource){
   
 
 
-          fname = "Test109";
+          fname = "Test110";
           //fname = JSON.stringfy(patient);
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
