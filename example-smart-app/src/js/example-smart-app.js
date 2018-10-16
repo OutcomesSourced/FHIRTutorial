@@ -100,7 +100,8 @@ function createFHIRFile(resource){
                     }
                   });
         
-        smart.patient.api.fetchAll({type: 'Observation'})
+     /*Teables
+     smart.patient.api.fetchAll({type: 'Observation'})
         .then(function(results, refs) {
           results.forEach(function(observation){
             displayObservation(observation);
@@ -113,6 +114,7 @@ function createFHIRFile(resource){
             displayCondition(conditiona);
           });
         });
+        */
         
 
         
@@ -205,7 +207,7 @@ function createFHIRFile(resource){
   
 
 
-          fname = "Test112";
+          fname = "Test113";
           //fname = JSON.stringfy(patient);
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
