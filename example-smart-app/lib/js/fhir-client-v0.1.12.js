@@ -17504,7 +17504,7 @@ function FhirClient(p) {
         client.patient.api = fhir({
             baseUrl: server.serviceUrl,
             auth: auth,
-	    patient: '4744007'
+	    patient: p.patientId
         });
         client.patient.read = function(){
             return client.get({resource: 'Patient'});
