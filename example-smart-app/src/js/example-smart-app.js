@@ -43,9 +43,9 @@
       }
       cell4.innerHTML = observation.id;
       if (typeof observation.effectiveDateTime != 'undefined') {
-          cell4.innerHTML = observation.effectiveDateTime;
+          cell5.innerHTML = observation.effectiveDateTime;
         } else {
-          cell4.innerHTML = 'Missing Value';
+          cell5.innerHTML = 'Missing Value';
       }
     }
     
@@ -226,7 +226,7 @@ function createFHIRFile(resource){
   
 
 
-          fname = "Test120";
+          fname = "Test121";
           //fname = JSON.stringfy(patient);
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
