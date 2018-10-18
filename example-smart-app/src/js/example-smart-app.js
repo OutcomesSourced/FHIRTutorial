@@ -14,6 +14,7 @@
       var cell2 = row.insertCell(1);
       var cell3 = row.insertCell(2);
       var cell4 = row.insertCell(3);
+      var cell5 = row.insertCell(4);
       //cell1.innerHTML = '1';
       //cell2.innerHTML = '2';
       
@@ -33,10 +34,19 @@
       if (typeof observation.valueCodeableConcept != 'undefined' &&
           typeof observation.valueCodeableConcept.text != 'undefined') {
           cell3.innerHTML = observation.valueCodeableConcept.text;
-        } else {
+        } else if (typeof observation.valueQuantity != 'undefined' &&
+          typeof observation.valueQuantity.value != 'undefined') {
+          cell3.innerHTML = observation.valueQuantity.valuet;
+        }
+        else {
           cell3.innerHTML = 'Missing Value';
       }
       cell4.innerHTML = observation.id;
+      if (typeof observation.effectiveDateTime != 'undefined'') {
+          cell4.innerHTML = observation.effectiveDateTime;
+        } else {
+          cell4.innerHTML = 'Missing Value';
+      }
     }
     
     function displayCondition (condition) {
