@@ -29,10 +29,9 @@
         } else {
           cell2.innerHTML = 'Missing Value';
       }
-      if (typeof observation.value != 'undefined' &&
-          typeof observation.value.valueCodeableConcept != 'undefined' &&
-          typeof observation.value.valueCodeableConcept.text != 'undefined') {
-          cell3.innerHTML = observation.value.valueCodeableConcept.text;
+      if (typeof observation.valueCodeableConcept != 'undefined' &&
+          typeof observation.valueCodeableConcept.text != 'undefined') {
+          cell3.innerHTML = observation.valueCodeableConcept.text;
         } else {
           cell3.innerHTML = 'Missing Value';
       }
@@ -215,7 +214,7 @@ function createFHIRFile(resource){
   
 
 
-          fname = "Test117";
+          fname = "Test118";
           //fname = JSON.stringfy(patient);
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
