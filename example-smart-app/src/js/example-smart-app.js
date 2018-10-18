@@ -12,6 +12,7 @@
       var row = table.insertRow(1);
       var cell1 = row.insertCell(0);
       var cell2 = row.insertCell(1);
+      var cell3 = row.insertCell(2);
       //cell1.innerHTML = '1';
       //cell2.innerHTML = '2';
       
@@ -27,6 +28,13 @@
           cell2.innerHTML = observation.code.text;
         } else {
           cell2.innerHTML = 'Missing Value';
+      }
+      if (typeof observation.value != 'undefined' &&
+          typeof observation.value.valueCodeableConcept != 'undefined' &&
+          typeof observation.value.valueCodeableConcept.text != 'undefined') {
+          cell3.innerHTML = observation.value.valueCodeableConcept.text;
+        } else {
+          cell3.innerHTML = 'Missing Value';
       }
     }
     
@@ -207,7 +215,7 @@ function createFHIRFile(resource){
   
 
 
-          fname = "Test116";
+          fname = "Test117";
           //fname = JSON.stringfy(patient);
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
