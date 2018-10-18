@@ -36,7 +36,7 @@
           cell3.innerHTML = observation.valueCodeableConcept.text;
         } else if (typeof observation.valueQuantity != 'undefined' &&
           typeof observation.valueQuantity.value != 'undefined') {
-          cell3.innerHTML = observation.valueQuantity.valuet;
+          cell3.innerHTML = observation.valueQuantity.value;
         }
         else {
           cell3.innerHTML = 'Missing Value';
@@ -226,7 +226,7 @@ function createFHIRFile(resource){
   
 
 
-          fname = "Test121";
+          fname = "Test122";
           //fname = JSON.stringfy(patient);
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
