@@ -13,6 +13,7 @@
       var cell1 = row.insertCell(0);
       var cell2 = row.insertCell(1);
       var cell3 = row.insertCell(2);
+      var cell4 = row.insertCell(3);
       //cell1.innerHTML = '1';
       //cell2.innerHTML = '2';
       
@@ -35,6 +36,7 @@
         } else {
           cell3.innerHTML = 'Missing Value';
       }
+      cell4.innerHTML = observation.id;
     }
     
     function displayCondition (condition) {
@@ -214,7 +216,7 @@ function createFHIRFile(resource){
   
 
 
-          fname = "Test118";
+          fname = "Test119";
           //fname = JSON.stringfy(patient);
           var height = byCodes('8302-2');
           var weight = byCodes('29463-7');
